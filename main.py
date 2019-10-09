@@ -260,6 +260,7 @@ def main():
     
     if args.tensorboard: 
         writer.add_graph(model)
+        writer.close()
 
     model.cuda()
 
