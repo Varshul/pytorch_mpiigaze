@@ -260,7 +260,7 @@ def main():
     
     if args.tensorboard:
         dummy_input = torch.Tensor(1, 1)
-        writer.add_graph(model,dummy_input, verbose=True)
+        writer.add_graph(model,(dummy_input,), verbose=True)
 
     model.cuda()
 
