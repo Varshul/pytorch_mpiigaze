@@ -258,9 +258,9 @@ def main():
     module = importlib.import_module('models.{}'.format(args.arch))
     model = module.Model()
     
-    if args.tensorboard: 
-        writer.add_graph(model)
-        writer.close()
+    if args.tensorboard:
+        dummy_input = Variable(torch.rand(1, 3, 224, 224))
+        writer.add_graph(model,dummy_input)
 
     model.cuda()
 
