@@ -259,8 +259,7 @@ def main():
     model = module.Model()
     
     if args.tensorboard:
-        dummy_input = Variable(torch.rand(1, 3, 224, 224))
-        writer.add_graph(model,dummy_input)
+        writer.add_graph(model,input_to_model=None, verbose=False)
 
     model.cuda()
 
