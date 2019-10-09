@@ -259,8 +259,8 @@ def main():
     model = module.Model()
     
     if args.tensorboard:
-        dummy_input = torch.Tensor(1, 1)
-        writer.add_graph(model,(dummy_input,), verbose=True)
+        res = model(torch.autograd.Variable(torch.Tensor(1,1,28,28), requires_grad=True))
+        writer.add_graph(model,res, verbose=True)
 
     model.cuda()
 
