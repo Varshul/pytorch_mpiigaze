@@ -260,7 +260,7 @@ def main():
     
     if args.tensorboard:
         res = model(torch.autograd.Variable(torch.Tensor(1,1,28,28), requires_grad=True))
-        writer.add_graph(model,res, verbose=True)
+        writer.add_graph(model,(res,), verbose=True)
 
     model.cuda()
 
