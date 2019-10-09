@@ -257,6 +257,10 @@ def main():
     # model
     module = importlib.import_module('models.{}'.format(args.arch))
     model = module.Model()
+    
+    if args.tensorboard: 
+        writer.add_graph(model)
+
     model.cuda()
 
     criterion = nn.MSELoss(size_average=True)
